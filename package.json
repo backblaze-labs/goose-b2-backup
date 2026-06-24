@@ -1,0 +1,51 @@
+{
+  "name": "@backblaze-labs/goose-b2-backup",
+  "version": "0.1.0",
+  "description": "Back up your Goose (block/goose) sessions, config, and memory to Backblaze B2 — encrypted, incremental, WAL-safe.",
+  "type": "module",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "bin": {
+    "goose-b2-backup": "bin/goose-b2-backup.mjs"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --out-dir dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@backblaze-labs/agent-backup-core": "link:../agent-backup-core"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsdown": "^0.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "keywords": [
+    "goose",
+    "block-goose",
+    "backblaze",
+    "b2",
+    "backup"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/backblaze-b2-samples/goose-b2-backup"
+  }
+}
