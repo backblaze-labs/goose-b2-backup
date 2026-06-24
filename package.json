@@ -25,7 +25,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@backblaze-labs/agent-backup-core": "link:../agent-backup-core"
+    "@backblaze-labs/agent-backup-core": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
@@ -35,6 +35,9 @@
   },
   "engines": {
     "node": ">=22.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "goose",
