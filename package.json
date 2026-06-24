@@ -1,7 +1,7 @@
 {
   "name": "@backblaze-labs/goose-b2-backup",
-  "version": "0.1.0",
-  "description": "Back up your Goose (block/goose) sessions, config, and memory to Backblaze B2 — encrypted, incremental, WAL-safe.",
+  "version": "0.2.0",
+  "description": "Back up your Goose (block/goose) sessions, config, and memory to Backblaze B2 \u2014 encrypted, incremental, WAL-safe.",
   "type": "module",
   "main": "dist/index.mjs",
   "types": "dist/index.d.mts",
@@ -25,7 +25,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@backblaze-labs/agent-backup-core": "^0.1.0"
+    "@backblaze-labs/agent-backup-core": "^0.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

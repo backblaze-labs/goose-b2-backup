@@ -52,11 +52,13 @@ export const gooseAdapter: BackupAdapter = {
   id: "goose",
 
   resolveRoots(env) {
-    // Only back up roots that exist; dedupe by dir (Windows state==data).
-    const seen = new Set<string>();
+    // Keep every existing root, even when two labels resolve to the same dir
+    // (on Windows `state` falls back to the `data` dir). We must NOT dedupe by
+    // dir: the include patterns are label-scoped (`^state/logs/`,
+    // `^data/sessions/...`), so collapsing `state` into `data` would silently
+    // drop logs/history. The engine harmlessly walks the shared dir per label;
+    // no included file is captured twice (the label-scoped includes don't overlap).
     return gooseCandidateRoots(env).filter((r) => {
-      if (seen.has(r.dir)) return false;
-      seen.add(r.dir);
       try {
         return fs.statSync(r.dir).isDirectory();
       } catch {
