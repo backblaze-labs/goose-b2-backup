@@ -1,8 +1,10 @@
 # goose-b2-backup
 
+**Encrypted, incremental, off-site backups for your AI coding agent — powered by [Backblaze B2 cloud storage](https://blze.ai/storage).**
+
 Back up your [Goose](https://github.com/block/goose) state — sessions, config, memory, recipes, and history — to [Backblaze B2](https://www.backblaze.com/cloud-storage). Encrypted, incremental, and WAL-safe. No Goose plugin required; it runs as a small standalone daemon.
 
-Built on [`@backblaze-labs/agent-backup-core`](https://github.com/backblaze-b2-samples/agent-backup-core).
+Built on [`@backblaze-labs/agent-backup-core`](https://github.com/backblaze-labs/agent-backup-core).
 
 ## Why
 
@@ -54,6 +56,11 @@ Resolved from Goose's actual paths (XDG on Linux **and** macOS; `%APPDATA%\Block
 - **Set `B2_ENCRYPTION_KEY`.** It's separate from your B2 credentials, so a leaked bucket key can't decrypt your backups. Without it, the tool falls back to using the B2 application key and warns you.
 - **File-based secrets are never uploaded:** `config/secrets.yaml` (only present if you disabled the keyring) and provider OAuth token caches (`gemini_oauth/`, `githubcopilot/`, etc.) are excluded.
 - **Keyring-stored API keys are not on disk** and therefore not in any backup — Goose's default. If you restore onto a new machine, re-enter provider keys (or re-run provider auth).
+
+## Learn more
+
+- [Backblaze B2 Cloud Storage](https://blze.ai/storage) — affordable, S3-compatible object storage
+- [agent-backup-core](https://github.com/backblaze-labs/agent-backup-core) — the shared backup engine powering this tool
 
 ## License
 
